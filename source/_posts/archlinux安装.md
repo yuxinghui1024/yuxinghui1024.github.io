@@ -1,5 +1,6 @@
 ---
 title: ArchLinux的安装
+date: 2021-01-17 15:38:06
 ---
 Arch Linux 是属于GNU/Linux的一个发行版，Linux只是一个内核，我们平常说的linux系统是指GNU/Linux。Arch的特点Keep It Simple, Stupid（对应中文为“保持简单，且一目了然”）。Arch还提供[Arch 用户仓库](https://wiki.archlinux.org/index.php/Arch_User_Repository_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))，它包含了成千上万个由用户维护的[PKGBUILD](https://wiki.archlinux.org/index.php/PKGBUILD_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))脚本，配合[makepkg](https://wiki.archlinux.org/index.php/Makepkg_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))工具，从编译到打包一气呵成。
 
