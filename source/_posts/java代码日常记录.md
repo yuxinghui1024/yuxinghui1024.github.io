@@ -164,3 +164,111 @@ public class IdWorker {
     }
 }
 ```
+
+### 分布式锁redis实现
+
+``` java
+/**
+  * 分布式锁接口类，只有一台机器可以获得锁
+  *
+*/
+public interface RedisLock {
+    /**
+     * 尝试加锁，不可重入
+     * 发生在执行任务之前，只有申请到锁才可以继续执行
+     * @param lockName
+     * @return
+     */
+    String tryLock(String lockName, long timeout);
+
+    /**
+     * 尝试加锁,使用默认超时时间
+     *
+     * @param lockName the lock name
+     * @return the string
+     */
+    String tryLock(String lockName);
+
+    /**
+     * 释放锁
+     * 发生在获得锁但是后续处理失败，否则之后无法再获得锁。
+     * @param lockName 锁实例名字，唯一
+     * @return
+     */
+    boolean unLock(String lockName, String identifier);
+}
+```
+``` java
+public class RedisLockImpl implements RedisLock {
+
+    private static final String REDIS_LOCK_NAME_PREFIX = "REDIS_LOCK_";
+    private static final String LOCK_SUCCESS = "OK";
+
+    //NX是不存在时才set， XX是存在时才set， EX是秒，PX是毫秒
+    private static final String SET_IF_NOT_EXIST = "NX";
+    private static final String SET_WITH_EXPIRE_TIME = "PX";
+
+    /**
+     * 锁的释放时间, 上锁后超过此时间则自动释放锁. 单位为毫秒.
+     */
+    private static final long DEFAULT_TIMEOUT_MILLISECOND = 1000 * 60 * 10;
+
+
+
+    @Override
+    public String tryLock(String lockName, long timeout) {
+        if (Objects.isNull(lockName))
+            return null;
+        Jedis jedis = null;
+        try {
+            jedis = new Jedis("127.0.0.1", 6379);
+            jedis.auth("root");
+            String value = UUID.randomUUID().toString();
+            String key = REDIS_LOCK_NAME_PREFIX + lockName;
+            String result = jedis.set(key, value, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, timeout);
+            if (LOCK_SUCCESS.equals(result)){
+                return value;
+            }
+        }catch (Exception e){
+            System.err.printf("获取锁失败,lockName:%s", lockName);
+        }finally {
+            if (Objects.nonNull(jedis)){
+                jedis.close();    
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public String tryLock(String lockName) {
+        return tryLock(lockName, DEFAULT_TIMEOUT_MILLISECOND);
+    }
+
+    @Override
+    public boolean unLock(String lockName, String identifier) {
+        if (Objects.isNull(lockName) || Objects.isNull(identifier))
+            return false;
+
+        Jedis jedis = null;
+        String key = REDIS_LOCK_NAME_PREFIX + lockName;
+        try {
+            jedis = new Jedis("127.0.0.1", 6379);
+            jedis.auth("root");
+            String value = jedis.get(key);
+            if (identifier.equals(value)){
+                Long result = jedis.del(key);
+                if (result > 0)
+                    return true;
+            }
+        }catch (Exception e){
+            System.err.printf("释放锁失败，lockName:%s,identifier:%s", lockName, identifier);
+        }finally {
+            if (Objects.nonNull(jedis)){
+                jedis.close();
+            }
+        }
+        return false;
+    }
+}
+```
