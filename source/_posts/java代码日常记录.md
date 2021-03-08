@@ -199,6 +199,13 @@ public interface RedisLock {
 }
 ```
 ``` java
+/**
+  * 设置过期时间：可以防止锁删除失败，导致线程无线等待；带来的问题，A线程设置的锁过期后，B线程成功设置锁，A线程执行完后删除了B线程的锁；
+  * 解决方案，删除的时候获取锁的value，相等则删除；带来的问题，删除锁操作不是原子操作（判断相等的时候，C线程成功设置锁，删除了C线程的锁），
+  * 解决方案，rubby脚本。
+  * 第三方实现，Redisson
+  *
+*/
 public class RedisLockImpl implements RedisLock {
 
     private static final String REDIS_LOCK_NAME_PREFIX = "REDIS_LOCK_";
