@@ -228,8 +228,7 @@ public class RedisLockImpl implements RedisLock {
             return null;
         Jedis jedis = null;
         try {
-            jedis = new Jedis("127.0.0.1", 6379);
-            jedis.auth("root");
+            jedis = jedisPool.getResource();
             String value = UUID.randomUUID().toString();
             String key = REDIS_LOCK_NAME_PREFIX + lockName;
             String result = jedis.set(key, value, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, timeout);
@@ -260,14 +259,16 @@ public class RedisLockImpl implements RedisLock {
         Jedis jedis = null;
         String key = REDIS_LOCK_NAME_PREFIX + lockName;
         try {
-            jedis = new Jedis("127.0.0.1", 6379);
-            jedis.auth("root");
-            String value = jedis.get(key);
-            if (identifier.equals(value)){
-                Long result = jedis.del(key);
-                if (result > 0)
-                    return true;
-            }
+            jedis = jedisPool.getResource()；
+            StringBuilder script = new StringBuilder();
+            //if redis.call('get','orderkey')=='1111' then return redis.call('del','orderkey') else return 0 end
+            script.append("if redis.call('get','").append(key).append("')").append("=='").append(identifier).append("'").
+                    append(" then ").
+                    append("    return redis.call('del','").append(key).append("')").
+                    append(" else ").
+                    append("    return 0").
+                    append(" end");
+            return Integer.parseInt(jedis.eval(script.toString()).toString()) > 0 ? true : false;
         }catch (Exception e){
             System.err.printf("释放锁失败，lockName:%s,identifier:%s", lockName, identifier);
         }finally {
