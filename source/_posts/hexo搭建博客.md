@@ -60,6 +60,8 @@ deploy:
 8. 将 .travis.yml 推送到 repository 中。Travis CI 应该会自动开始运行，并将生成的文件推送到同一 repository 下的 gh-pages 分支下
 9. 在 GitHub 中前往你的 repository 的设置页面，修改 GitHub Pages 的部署分支为 gh-pages。
 
+**评论系统使用的[Valine](https://valine.js.org/)**
+
 
 
 
