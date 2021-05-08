@@ -7,56 +7,56 @@ date: 2021-02-10 15:38:06
 ---
 ```java
 /**
-	 * Run the Spring application, creating and refreshing a new
-	 * {@link ApplicationContext}.
-	 * @param args the application arguments (usually passed from a Java main method)
-	 * @return a running {@link ApplicationContext}
-	 */
-	public ConfigurableApplicationContext run(String... args) {
-		StopWatch stopWatch = new StopWatch();
-		stopWatch.start();
-		ConfigurableApplicationContext context = null;
-		Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList<>();
-		configureHeadlessProperty();
-		SpringApplicationRunListeners listeners = getRunListeners(args);
-		listeners.starting();
-		try {
-			ApplicationArguments applicationArguments = new DefaultApplicationArguments(
-					args);
-			ConfigurableEnvironment environment = prepareEnvironment(listeners,
-					applicationArguments);
-			configureIgnoreBeanInfo(environment);
-			Banner printedBanner = printBanner(environment);
-			context = createApplicationContext();
-			exceptionReporters = getSpringFactoriesInstances(
-					SpringBootExceptionReporter.class,
-					new Class[] { ConfigurableApplicationContext.class }, context);
-			prepareContext(context, environment, listeners, applicationArguments,
-					printedBanner);
-			refreshContext(context);
-			afterRefresh(context, applicationArguments);
-			stopWatch.stop();
-			if (this.logStartupInfo) {
-				new StartupInfoLogger(this.mainApplicationClass)
-						.logStarted(getApplicationLog(), stopWatch);
-			}
-			listeners.started(context);
-			callRunners(context, applicationArguments);
+ * Run the Spring application, creating and refreshing a new
+ * {@link ApplicationContext}.
+ * @param args the application arguments (usually passed from a Java main method)
+ * @return a running {@link ApplicationContext}
+ */
+public ConfigurableApplicationContext run(String... args) {
+	StopWatch stopWatch = new StopWatch();
+	stopWatch.start();
+	ConfigurableApplicationContext context = null;
+	Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList<>();
+	configureHeadlessProperty();
+	SpringApplicationRunListeners listeners = getRunListeners(args);
+	listeners.starting();
+	try {
+		ApplicationArguments applicationArguments = new DefaultApplicationArguments(
+				args);
+		ConfigurableEnvironment environment = prepareEnvironment(listeners,
+				applicationArguments);
+		configureIgnoreBeanInfo(environment);
+		Banner printedBanner = printBanner(environment);
+		context = createApplicationContext();
+		exceptionReporters = getSpringFactoriesInstances(
+				SpringBootExceptionReporter.class,
+				new Class[] { ConfigurableApplicationContext.class }, context);
+		prepareContext(context, environment, listeners, applicationArguments,
+				printedBanner);
+		refreshContext(context);
+		afterRefresh(context, applicationArguments);
+		stopWatch.stop();
+		if (this.logStartupInfo) {
+			new StartupInfoLogger(this.mainApplicationClass)
+					.logStarted(getApplicationLog(), stopWatch);
 		}
-		catch (Throwable ex) {
-			handleRunFailure(context, ex, exceptionReporters, listeners);
-			throw new IllegalStateException(ex);
-		}
-
-		try {
-			listeners.running(context);
-		}
-		catch (Throwable ex) {
-			handleRunFailure(context, ex, exceptionReporters, null);
-			throw new IllegalStateException(ex);
-		}
-		return context;
+		listeners.started(context);
+		callRunners(context, applicationArguments);
 	}
+	catch (Throwable ex) {
+		handleRunFailure(context, ex, exceptionReporters, listeners);
+		throw new IllegalStateException(ex);
+	}
+
+	try {
+		listeners.running(context);
+	}
+	catch (Throwable ex) {
+		handleRunFailure(context, ex, exceptionReporters, null);
+		throw new IllegalStateException(ex);
+	}
+	return context;
+}
 ```
 SpringApplication的run方法的实现是我们本次旅程的主要线路，该方法的主要流程大体可以归纳如下：
 
@@ -90,3 +90,7 @@ SpringApplication的run方法的实现是我们本次旅程的主要线路，该
 12） 查找当前ApplicationContext中是否注册有CommandLineRunner，如果有，则遍历执行它们。
 
 13） 正常情况下，遍历执行SpringApplicationRunListener的finished()方法、（如果整个过程出现异常，则依然调用所有SpringApplicationRunListener的finished()方法，只不过这种情况下会将异常信息一并传入处理）
+
+**注解：**
+* `@Import`主要用来导入一个或多个`@Configuration`类
+* `@ImportResource`如果需要导入XML或其他非`@Configuration` bean定义资源,使用该注解。
