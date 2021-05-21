@@ -1,5 +1,5 @@
 ---
-title: EL7安装MYSQL
+title: git使用日志
 date: 2021-05-21 15:38:06
 ---
 
