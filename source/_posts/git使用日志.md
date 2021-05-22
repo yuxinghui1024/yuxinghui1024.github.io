@@ -39,7 +39,7 @@ git push
 
 #### 隐藏工作区
 ```bash
-git status
+git stash
 git stash list
 git stash pop
 ```
