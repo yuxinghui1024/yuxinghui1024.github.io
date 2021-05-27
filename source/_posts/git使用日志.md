@@ -57,3 +57,5 @@ git push -u origin master
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
 
+**注意：**本地存在多个分支时，新建分支要先切换到主分支。
+
