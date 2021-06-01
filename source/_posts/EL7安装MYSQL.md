@@ -6,7 +6,7 @@ date: 2021-05-16 15:38:06
 ### mysql5.7安装
 系统环境：RHEL7，不适用于Fedora 32, 33, and 34
 
-**注意：**如果安装过第三方版本请参考 [Replacing a Native Third-Party Distribution of MySQL.](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/index.html#repo-qg-yum-replacing)
+**注意：** 如果安装过第三方版本请参考 [Replacing a Native Third-Party Distribution of MySQL.](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/index.html#repo-qg-yum-replacing)
 
 #### 上传下载工具安装（非必须）：
 也可以使用ftp工具上传下载，属于个人喜好
@@ -20,6 +20,7 @@ yum install lrzsz -y
 shell> rpm -Uvh platform-and-version-specific-package-name.rpm
 ```
 **注意：**通过yum update命令进行的所有系统范围内的更新都将自动升级系统上的MySQL软件包，并且还会替换任何本机的第三方软件包（如果有的话） 在MySQL Yum存储库中找到它们的替代品。
+
 2. 选择存储库中的MYSQL版本安装
 使用MySQL Yum存储库时，默认情况下会选择安装最新的GA版本的MySQL因为默认启动最新版本subrepositories ，所以需要手动指定安装版本。
 可以使用命令查看当前启动的子存储库：
@@ -57,6 +58,8 @@ yum repolist all | grep mysql
 ```shell
 shell> yum install mysql-community-server
 ```
+
+
 4. 启动服务
 ```shell
 shell> systemctl start mysqld
