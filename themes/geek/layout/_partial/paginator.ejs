@@ -1,8 +1,9 @@
-<div class="page">
+<div class="hd page">
 <% if (page.total > 1){ %>
     <%- paginator({
         prev_text: '<',
-        next_text: '>'
+        next_text: '>',
+        escape: false
       }) %>
 <% } %>
 </div>
