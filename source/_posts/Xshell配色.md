@@ -1,5 +1,5 @@
 ---
-title: xshell配色
+title: Xshell配色
 date: 2021-03-10 15:38:06
 ---
 
