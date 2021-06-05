@@ -1,5 +1,5 @@
 ---
-title: EL7安装MYSQL
+title: github项目
 date: 2021-06-06 15:38:06
 ---
 
