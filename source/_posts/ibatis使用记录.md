@@ -1,5 +1,5 @@
 ---
-title: ibatis使用日志
+title: ibatis使用记录
 date: 2020-05-20 15:38:06
 ---
 
