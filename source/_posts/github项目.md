@@ -14,3 +14,5 @@ date: 2021-06-06 15:38:06
 * [https://github.com/pandao/editor.md]()，markdown在线编辑的工具，可以嵌入到项目中。
 * [https://github.com/wangshub/RL-Stock](),如何用深度强化学习自动炒股.
 * [https://github.com/lyswhut/lx-music-desktop]()，一个基于 Electron + Vue 开发的音乐软件。
+* [https://github.com/dbeaver/dbeaver]()，DBeaver是开发人员和数据库管理员的免费和开源通用数据库工具。
+* [https://github.com/qishibo/AnotherRedisDesktopManager]()，更快，更好，更稳定的Redis Desktop Manager，与Linux，Windows，Mac兼容。 更重要的是，加载大量密钥时不会崩溃。
