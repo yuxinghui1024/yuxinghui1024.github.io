@@ -130,5 +130,14 @@ Strings are equal
 7. 如果Java应用程序因OutOfMemoryError而崩溃，并且你需要一些其他信息来检测泄漏，可以使用–XX:HeapDumpOnOutOfMemory参数运行此进程，此参数将在下次发生此错误时创建堆转储文件。
 
 8. 使用-verbose:gc选项获取垃圾回收输出。每次发生垃圾收集时，都会生成输出。
+9. jvm常用打印日志的参数:
+```
+-XX:+PrintGC 输出GC日志
+-XX:+PrintGCDetails 输出GC的详细日志
+-XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）
+-XX:+PrintGCDateStamps 输出GC的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）
+-XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息
+-Xloggc:../logs/gc.log 日志文件的输出路径
+```
 
 
