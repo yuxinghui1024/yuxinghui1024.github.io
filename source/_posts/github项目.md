@@ -17,4 +17,4 @@ date: 2021-06-06 15:38:06
 * [https://github.com/dbeaver/dbeaver](https://github.com/dbeaver/dbeaver)，DBeaver是开发人员和数据库管理员的免费和开源通用数据库工具。
 * [https://github.com/qishibo/AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)，更快，更好，更稳定的Redis Desktop Manager，与Linux，Windows，Mac兼容。 更重要的是，加载大量密钥时不会崩溃。
 * [https://github.com/badafans/better-cloudflare-ip](https://github.com/badafans/better-cloudflare-ip)，查找适合自己当前网络环境的优选Cloudflare Anycast IP。
-* [Monit](https://mmonit.com/monit),开源服务器监控工具，[手册](https://mmonit.com/monit/documentation/monit.html)
+* [https://mmonit.com/monit](https://mmonit.com/monit),开源服务器监控工具，运维网站。[手册](https://mmonit.com/monit/documentation/monit.html)
