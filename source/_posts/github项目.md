@@ -18,3 +18,6 @@ date: 2021-06-06 15:38:06
 * [https://github.com/qishibo/AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)，更快，更好，更稳定的Redis Desktop Manager，与Linux，Windows，Mac兼容。 更重要的是，加载大量密钥时不会崩溃。
 * [https://github.com/badafans/better-cloudflare-ip](https://github.com/badafans/better-cloudflare-ip)，查找适合自己当前网络环境的优选Cloudflare Anycast IP。
 * [https://mmonit.com/monit](https://mmonit.com/monit),开源服务器监控工具，运维网站。[手册](https://mmonit.com/monit/documentation/monit.html)
+* [https://github.com/PaddlePaddle/PaddleHub](https://github.com/PaddlePaddle/PaddleHub)，便捷地获取PaddlePaddle生态下的预训练模型，完成模型的管理和一键预测。配合使用Fine-tune API，可以基于大规模预训练模型快速完成迁移学习，让预训练模型能更好地服务于用户特定场景的应用。
+* [https://github.com/deepfakes/faceswap](https://github.com/deepfakes/faceswap)，FaceSwap 是一个基于深度学习的换脸工具，可替换任何图片或是视频中的人脸。
+* [https://github.com/CodingGay/BlackDex](https://github.com/CodingGay/BlackDex)，BlackDex 是一个运行在 Android 手机上的脱壳工具，支持 Android 版本 5.0～12，无需依赖任何环境任何手机都可以使用，包括模拟器。只需几秒，即可对已安装包括未安装的 APK 进行脱壳。
