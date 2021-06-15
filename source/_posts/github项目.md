@@ -23,3 +23,4 @@ date: 2021-06-06 15:38:06
 * [https://github.com/CodingGay/BlackDex](https://github.com/CodingGay/BlackDex)，BlackDex 是一个运行在 Android 手机上的脱壳工具，支持 Android 版本 5.0～12，无需依赖任何环境任何手机都可以使用，包括模拟器。只需几秒，即可对已安装包括未安装的 APK 进行脱壳。
 * [https://github.com/PixelExperience](https://github.com/PixelExperience)，Android第三方rom
 * [https://github.com/github/gitignore](https://github.com/github/gitignore)，`.gitignore`文件的配置
+* [https://github.com/facebook/zstd](https://github.com/facebook/zstd)，文件压缩的项目，轻量级
