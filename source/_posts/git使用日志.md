@@ -17,6 +17,16 @@ git checkout -b dev
 git branch -u origin/dev	//git branch --set-upstream dev origin/dev
 ```
 
+#### 修改提交
+```
+git commit --amend -m "new message"
+```
+
+```bash
+git add <file_name>
+git commit --amend HEAD~1
+```
+
 #### 版本回退
 ```bash
 git log --oneline
@@ -28,6 +38,8 @@ git push -f
 ```bash
 git reflog
 git reset --hard 1094a
+git reset --soft 1094a //保留更改
+git reset --hard origin/<branch_name> //重置原始版本
 ```
 
 #### 删除中间某次提交
