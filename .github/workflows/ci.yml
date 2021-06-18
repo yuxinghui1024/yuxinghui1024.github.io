@@ -1,4 +1,4 @@
-name: GitHub Blog
+name: GitHub Actions Build and Deploy
 on:
   push:
     branches:
@@ -35,7 +35,7 @@ jobs:
       run: |
         hexo clean
         hexo g
-
+    
     # 提交到我们的存放静态资源的仓库
 
     - name: Build and Deploy
