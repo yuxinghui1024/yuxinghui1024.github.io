@@ -27,6 +27,7 @@ date: 2021-06-06 15:38:06
 * [https://github.com/qishibo/AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)，更快，更好，更稳定的Redis Desktop Manager，与Linux，Windows，Mac兼容。 更重要的是，加载大量密钥时不会崩溃。
 * [https://github.com/badafans/better-cloudflare-ip](https://github.com/badafans/better-cloudflare-ip)，查找适合自己当前网络环境的优选Cloudflare Anycast IP。
 * [https://github.com/yuxinghui1024/frp](https://github.com/yuxinghui1024/frp)，frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。
+* [https://github.com/jesseduffield/lazygit](https://github.com/jesseduffield/lazygit)，Git命令的一个简单终端UI，用Gocui库写入。
 
 
 #### 实用
