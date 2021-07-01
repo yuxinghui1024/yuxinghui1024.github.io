@@ -28,6 +28,7 @@ date: 2021-06-06 15:38:06
 * [https://github.com/badafans/better-cloudflare-ip](https://github.com/badafans/better-cloudflare-ip)，查找适合自己当前网络环境的优选Cloudflare Anycast IP。
 * [https://github.com/yuxinghui1024/frp](https://github.com/yuxinghui1024/frp)，frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。
 * [https://github.com/jesseduffield/lazygit](https://github.com/jesseduffield/lazygit)，Git命令的一个简单终端UI，用Gocui库写入。
+* [https://github.com/rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)，远程桌面软件，开箱即用，无需任何配置，替代TeamViewer和AnyDesk。您完全掌控数据，不用担心安全问题。您可以使用我们的注册/中继服务器， 或者自己设置， 亦或者开发您的版本。
 
 
 #### 实用
