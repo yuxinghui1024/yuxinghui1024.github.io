@@ -1,5 +1,5 @@
 ---
-title: OOS与OAuth2.0
+title: SSO与OAuth2.0
 date: 2021-07-5 15:38:06
 ---
 
