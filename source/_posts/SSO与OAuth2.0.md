@@ -3,7 +3,7 @@ title: SSO与OAuth2.0
 date: 2021-07-5 15:38:06
 ---
 
-### OOS（Single Sign On）
+### SSO（Single Sign On）
 相互信任的系统之间，实现一次登录之后各个服务之间无需重复登录。需要抽离单独的认证授权服务，用户在Authentication Server获取token，访问每个系统资源都需要携带token，
 被访问系统拿token去Authentication Server认证，完成资源的访问与权限。
 
